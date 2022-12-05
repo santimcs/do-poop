@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @poop.date %>
+</p>
+
+<p>
+  <strong>Pooped:</strong>
+  <%= @poop.pooped %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @poop.hour %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @poop.grade %>
+</p>
+
+<p>
+  <strong>Lunch:</strong>
+  <%= @poop.lunch.name %>
+</p>
+
+<p>
+  <strong>Dinner:</strong>
+  <%= @poop.dinner.name %>
+</p>
+
+<p>
+  <strong>Snack:</strong>
+  <%= @poop.snack.name %>
+</p>
+
+<%= link_to 'Edit', edit_poop_path(@poop) %> |
+<%= link_to 'Back', poops_path %>

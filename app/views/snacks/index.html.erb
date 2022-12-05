@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Snacks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snacks.each do |snack| %>
+      <tr>
+        <td><%= snack.seq %></td>
+        <td><%= snack.name %></td>
+        <td><%= link_to_icon 'Show', snack %></td>
+        <td><%= link_to_icon 'Edit', edit_snack_path(snack) %></td>        
+        <td><%= link_to_icon 'Destroy', snack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snack', new_snack_path %>

@@ -1,0 +1,39 @@
+<div class ="page-header text-center" > 
+  <%= link_to 'New Poop', new_poop_path,
+  :class => "btn btn-success pull-right"  %>
+  <h1>Poops</h1>
+</div>
+
+<table id="poops" class="display table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Pooped</th>
+      <th>Hour</th>
+      <th>Grade</th>
+      <th>Lunch</th>
+      <th>Snack</th>
+      <th>Dinner</th>
+      <th>S</th>
+      <th>E</th>
+      <th>D</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poops.each do |poop| %>
+      <tr>
+        <td><%= poop.date %></td>
+        <td><%= poop.pooped %></td>
+        <td><%= poop.hour %></td>
+        <td><%= poop.grade %></td>
+        <td><%= poop.lunch.name %></td>
+        <td><%= poop.snack.name %></td>
+        <td><%= poop.dinner.name %></td>
+        <td><%= link_to_icon 'Show', poop %></td>
+        <td><%= link_to_icon 'Edit', edit_poop_path(poop) %></td>        
+        <td><%= link_to_icon 'Destroy', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

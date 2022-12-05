@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dinners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dinners.each do |dinner| %>
+      <tr>
+        <td><%= dinner.seq %></td>
+        <td><%= dinner.name %></td>
+        <td><%= link_to_icon 'Show', dinner %></td>
+        <td><%= link_to_icon 'Edit', edit_dinner_path(dinner) %></td>        
+        <td><%= link_to_icon 'Destroy', dinner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dinner', new_dinner_path %>

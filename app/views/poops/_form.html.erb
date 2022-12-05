@@ -1,0 +1,53 @@
+<%= form_with(model: poop, local: true) do |form| %>
+  <% if poop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(poop.errors.count, "error") %> prohibited this poop from being saved:</h2>
+
+      <ul>
+      <% poop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :poop_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pooped %>
+    <%= form.check_box :pooped, id: :poop_pooped %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hour %>
+    <%= form.number_field :hour, id: :poop_hour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grade %>
+    <%= form.number_field :grade, id: :poop_grade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lunch_id %>
+      <%= form.collection_select :lunch_id, Lunch.order("seq ASC"), :id, :name %>
+  </div> 
+
+  <div class="field">
+    <%= form.label :snack_id %>
+      <%= form.collection_select :snack_id, Snack.order("name ASC"), :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dinner_id %>
+      <%= form.collection_select :dinner_id, Dinner.order("seq ASC"), :id, :name %>
+  </div>  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

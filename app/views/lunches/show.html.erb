@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Seq:</strong>
+  <%= @lunch.seq %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lunch.name %>
+</p>
+
+<%= link_to 'Edit', edit_lunch_path(@lunch) %> |
+<%= link_to 'Back', lunches_path %>
